@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # Home controller (top-level) paths. index is our root.
+  root 'home#index'
+  get 'about', to: "home#about"
+  get 'faq', to: "home#faq"
 end
