@@ -83,4 +83,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Setup actionmailer for devise using herok as our host
+  config.action_mailer.default_url_options = { host: 'enigmatic-sierra-35213.herokuapp.com' }
 end
