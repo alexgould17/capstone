@@ -6,5 +6,6 @@ class HomeController < ApplicationController
   end
 
   def faq
+    @faqs = Faq.all
   end
 end

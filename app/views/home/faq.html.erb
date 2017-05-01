@@ -1,3 +1,5 @@
 <h1>Frequently Asked Questions</h1>
-<h2>Question</h2>
-<p>Answer</p>
+<% @faqs.each do |faq| %>
+  <h2><%= faq.question %></h2>
+  <p><%= faq.answer %></p>
+<% end %>
