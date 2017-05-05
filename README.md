@@ -14,3 +14,14 @@ This is the final project I will be making for my bloc courses & it is meant to 
 - App should monitor local files & alert the user if any errors occur between local files & database.
 - **Potential Bonus Feature**: Post to social media without leaving the app.
 There are a few other features I'm mulling over, but unless I truly want to put the effort in to turn this into a magnum opus, I'll not add them (They'll be added to this readme if I see fit to at least think about including them).
+
+## Styling
+- Backgrounds, borders, etc. should be as neutral-colored as possible to draw all attention to the art.
+- Dark colors with a brighter border to add separation is the current theme.
+- Grayscale for now with the exception of non-nav visited links. Considering changing those to a diff shade of gray in the near future.
+
+## To-do list
+- Figure out how to display images in rails.
+- Make nav tab collapsable (branch: styling).
+- Style alert areas properly (branch: styling).
+- Create image model (branch: collection).
