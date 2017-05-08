@@ -15,8 +15,19 @@
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "About", about_path %></li>
           <li><%= link_to "FAQ", faq_path %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+          <% end %>
         </ul>
       </nav>
+      <% if flash[:notice]  %>
+        <p class="notice" id="noticeDiv"><%= flash[:notice] %></p>
+      <% end %>
+      <% if flash[:alert] %>
+        <p class="alert" id="alertDiv"><%= flash[:alert] %></p>
+      <% end %>
     </header>
     <main>
       <%= yield %>

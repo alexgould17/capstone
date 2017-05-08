@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'about', to: "home#about"
   get 'faq', to: "home#faq"
+
+  # User signup/login/etc. paths via devise
+  devise_for :users
 end
