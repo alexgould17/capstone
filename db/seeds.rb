@@ -14,6 +14,10 @@ faq_questions.count.times do |i|
   Faq.create!(question: faq_questions[i], answer: faq_answers[i])
 end
 
-# me = User.find_or_create_by(name: )
+me = User.find_or_create_by(email: 'alexgould17@gmail.com') do |me|
+  me.name = "Alex Gould"
+  me.password = "wsxedc"
+end
+me.update_attribute(:confirmed_at, 1.second.ago)
 
 puts "There are now #{Faq.count} questions in the FAQ."
