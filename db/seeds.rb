@@ -10,8 +10,10 @@ faq_answers = [
 ]
 
 # This was the easiest way to put FAQs into the db currently. Will make an admin page to update them later.
-faq_questions.count.times do |i|
-  Faq.create!(question: faq_questions[i], answer: faq_answers[i])
+if Faq.count == 0
+  faq_questions.count.times do |i|
+    Faq.create!(question: faq_questions[i], answer: faq_answers[i])
+  end
 end
 
 me = User.find_or_create_by(email: 'alexgould17@gmail.com') do |me|
@@ -20,4 +22,29 @@ me = User.find_or_create_by(email: 'alexgould17@gmail.com') do |me|
 end
 me.update_attribute(:confirmed_at, 1.second.ago)
 
+# Add our two test images
+if Image.count == 0
+  Image.create!(
+    title: "First pic!",
+    pictype: 0,
+    uri: "https://s3-us-west-1.amazonaws.com/alexgcapstonepics/me1.jpg",
+    latitude: 37.39194444,
+    longitude: -122.00222222,
+    aspect_ratio: 0.5625,
+    tags: "Alex Gould,selfie,Stanford",
+    user_id: me.id
+  )
+  Image.create!(
+    title: "Second pic!",
+    pictype: 0,
+    uri: "https://s3-us-west-1.amazonaws.com/alexgcapstonepics/me2.jpg",
+    latitude: 37.51361111,
+    longitude: -122.19972222,
+    aspect_ratio: 0.5625,
+    tags: "Alex Gould,profile pic,at work",
+    user_id: me.id
+  )
+end
+
 puts "There are now #{Faq.count} questions in the FAQ."
+puts "There are now #{Image.count} images in the database."

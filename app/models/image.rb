@@ -2,9 +2,6 @@ class Image < ApplicationRecord
   belongs_to :user
 
   before_save do
-    # Make picture the default image type.
-    self.type ||= :picture
-
     # Make sure latitude is between -90 & 90 degrees
     if self.latitude < -90
       self.latitude = -90
@@ -22,5 +19,5 @@ class Image < ApplicationRecord
     # TODO: Add aspect ratio calculations
   end
 
-  enum type: [:picture, :artwork, :other]
+  enum pictype: [:picture, :artwork, :other]
 end
