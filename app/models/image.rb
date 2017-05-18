@@ -2,6 +2,8 @@ class Image < ApplicationRecord
   belongs_to :user
 
   before_save do
+    # TODO: ensure lat & long are ints
+    
     # Make sure latitude is between -90 & 90 degrees
     if self.latitude < -90
       self.latitude = -90

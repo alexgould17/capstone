@@ -1,0 +1,2 @@
+<h1><%= @image.title %></h1>
+<%= image_tag @image.uri, class: image_class(@image), alt: @image.title, size: image_large_size(@image.aspect_ratio) %>
