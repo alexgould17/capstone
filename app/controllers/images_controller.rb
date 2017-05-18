@@ -1,7 +1,8 @@
 class ImagesController < ApplicationController
   # index corresponds to a user's collection
   def index
-    @images = Image.where(user_id: params[:user_id])
+    @images = Image.where(user_id: params[:id])
+    @user = User.find(params[:id])
   end
 
   def new
