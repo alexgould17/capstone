@@ -5,5 +5,11 @@ Rails.application.routes.draw do
   get 'faq', to: "home#faq"
 
   # User signup/login/etc. paths via devise
-  devise_for :users
+  devise_for :users do
+    # Nest image paths under users except index
+    resources :images, except: [:index]
+  end
+
+  # User's page maps to their collection which is handled by index action in the images controller.
+  get 'users/:id', to: 'images#index', as: 'user'
 end

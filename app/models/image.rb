@@ -15,8 +15,6 @@ class Image < ApplicationRecord
     elsif self.longitude > 180
       self.longitude = 180
     end
-
-    # TODO: Add aspect ratio calculations
   end
 
   enum pictype: [:picture, :artwork, :other]
