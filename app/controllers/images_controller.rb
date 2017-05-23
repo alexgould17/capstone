@@ -16,6 +16,7 @@ class ImagesController < ApplicationController
   # show corresponds to a single image view
   def show
     @image = Image.find(params[:id])
+    @tags = @image.tags.split(',')
   end
 
   def edit

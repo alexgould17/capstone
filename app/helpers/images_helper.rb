@@ -56,4 +56,34 @@ module ImagesHelper
     end
     size
   end
+
+  # Returns a string with the given latitude & longitude translated into degrees, minutes, seconds
+  # notation. Rounds to the nearest arcsecond (accurate to within ~5 meters).
+  def location_with_symbols(latitude, longitude)
+    lat_dir = ""
+    long_dir = ""
+    if latitude < 0
+      lat_dir = "S"
+      latitude = latitude.abs
+    else
+      lat_dir = "N"
+    end
+    if longitude < 0
+      long_dir = "W"
+      longitude = longitude.abs
+    else
+      long_dir = "E"
+    end
+    latitude_string = "#{latitude.floor}° "
+    longitude_string = "#{longitude.floor}° "
+    lat_min = (latitude - latitude.floor) * 60
+    long_min = (longitude - longitude.floor) * 60
+    latitude_string << "#{lat_min.floor}′ "
+    longitude_string << "#{long_min.floor}′ "
+    lat_sec = ((lat_min - lat_min.floor) * 60).round
+    long_sec = ((long_min - long_min.floor) * 60).round
+    latitude_string << "#{lat_sec.floor}″ " << lat_dir
+    longitude_string << "#{long_sec.floor}″ " << long_dir
+    latitude_string + ", " + longitude_string
+  end
 end

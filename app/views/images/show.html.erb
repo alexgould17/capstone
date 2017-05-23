@@ -1,2 +1,17 @@
 <h1><%= @image.title %></h1>
 <%= image_tag @image.uri, class: image_class(@image), alt: @image.title, size: image_large_size(@image.aspect_ratio) %>
+<h3>Type:</h3>
+<p><%= @image.pictype %></p>
+<h3>Location:</h3>
+<p><%= location_with_symbols(@image.latitude, @image.longitude) %></p>
+<h3>Tags:</h3>
+<div class="container">
+  <% @tags.each do |tag| %>
+    <div class="tag">
+      <%= tag %>
+      <a href="#"><span class="glyphicon glyphicon-remove">X</span></a>
+      </div>
+  <% end %>
+</div>
+<h3>Add a new tag:</h3>
+<p>TODO: Add form for adding new tags as well as a deletion link both via ajax. Remember to take the X out of the glyphicon span once bootstrap is installed</p>
