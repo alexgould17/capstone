@@ -10,7 +10,14 @@ class ImagesController < ApplicationController
   end
 
   def create
-
+    @image = Image.new(image_params)
+    @image.user = current_user
+    if @image.save
+      flash[:notice] << "Added image \"#{@image.title}\" to your collection!"
+      redirect_to @image
+    else
+      flash[:alert] = "Couldn't save image \"#{@image.title}\". Please try again."
+    end
   end
 
   # show corresponds to a single image view
@@ -29,5 +36,11 @@ class ImagesController < ApplicationController
 
   def destroy
 
+  end
+
+  private
+
+  def image_params
+    params.require(:image).permit(:title, :pictype, :uri, :latitude, :longitude, :width, :height, :tags)
   end
 end

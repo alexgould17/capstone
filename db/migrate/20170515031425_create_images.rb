@@ -6,6 +6,8 @@ class CreateImages < ActiveRecord::Migration[5.0]
       t.string :uri, null: false, default: ""
       t.float :latitude
       t.float :longitude
+      t.integer :width
+      t.integer :height
       t.float :aspect_ratio
       t.text :tags
 

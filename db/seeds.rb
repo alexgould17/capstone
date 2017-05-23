@@ -30,6 +30,8 @@ if Image.count == 0
     uri: "https://s3-us-west-1.amazonaws.com/alexgcapstonepics/me1.jpg",
     latitude: 37.39194444,
     longitude: -122.00222222,
+    width: 1836,
+    height: 3264,
     aspect_ratio: 0.5625,
     tags: "Alex Gould,selfie,Stanford",
     user_id: me.id
@@ -40,6 +42,8 @@ if Image.count == 0
     uri: "https://s3-us-west-1.amazonaws.com/alexgcapstonepics/me2.jpg",
     latitude: 37.51361111,
     longitude: -122.19972222,
+    width: 2988,
+    height: 5312,
     aspect_ratio: 0.5625,
     tags: "Alex Gould,profile pic,at work",
     user_id: me.id

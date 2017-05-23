@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20170517054910) do
     t.string   "uri",          default: "", null: false
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "width"
+    t.integer  "height"
     t.float    "aspect_ratio"
     t.text     "tags"
     t.datetime "created_at",                null: false

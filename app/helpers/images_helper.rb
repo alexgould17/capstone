@@ -58,7 +58,7 @@ module ImagesHelper
   end
 
   # Returns a string with the given latitude & longitude translated into degrees, minutes, seconds
-  # notation. Rounds to the nearest arcsecond (accurate to within ~5 meters).
+  # notation. Rounds to the nearest arcsecond (accurate to within ~5 meters per WGS84 spec).
   def location_with_symbols(latitude, longitude)
     lat_dir = ""
     long_dir = ""
