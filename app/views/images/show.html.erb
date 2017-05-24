@@ -2,8 +2,10 @@
 <%= image_tag @image.uri, class: image_class(@image), alt: @image.title, size: image_large_size(@image.aspect_ratio) %>
 <h3>Type:</h3>
 <p><%= @image.pictype %></p>
-<h3>Location:</h3>
-<p><%= location_with_symbols(@image.latitude, @image.longitude) %></p>
+<% if @image.pictype == :picture %>
+  <h3>Location:</h3>
+  <p><%= location_with_symbols(@image.latitude, @image.longitude) %></p>
+<% end %>
 <h3>Tags:</h3>
 <div class="container">
   <% @tags.each do |tag| %>
@@ -15,3 +17,5 @@
 </div>
 <h3>Add a new tag:</h3>
 <p>TODO: Add form for adding new tags as well as a deletion link both via ajax. Remember to take the X out of the glyphicon span once bootstrap is installed</p>
+<%= link_to "Edit this image", edit_image_path %><br />
+<%= link_to "Delete this image X", @image, method: :delete %>
