@@ -4,14 +4,13 @@
 This is the final project I will be making for my bloc courses & it is meant to be the best display of my knowledge & proficiency in coding yet. This project will be an app that sorts, organizes & displays the user's personal collection of pictures. It will store metadata in a local database that will allow the user to *very* easily sort & search through their pictures however they want to. In addition, it will feature a pleasing & robust UI while incorporating external APIs (see User Experiences section) to enhance functionality.
 
 ## User Experiences
-- Users should be able to sign up, login & see their homepage.
-- Users should be able to see & browse their pictures laid out in a pleasing format.
-- Users should be able to add a picture from local storage into their collection. *this is too difficult to add to production for now, so we will leave it be for now*
-- Users should be able to add/remove tags on images.
+- Users should be able to sign up, login & see their homepage. *done*
+- Users should be able to see & browse their pictures laid out in a pleasing format. *done pending styling*
+- Users should be able to add/remove tags on images. *done*
 - Users should be able to sort & search by tags and other metadata.
 - Users should be able to add a picture from the internet into their collection. Said image should be downloaded locally & any existing metadata, if properly attached, should populate the database automatically.
 - Users should be able to export their personal database for backup/transfer to a new device.
-- App should monitor local files & alert the user if any errors occur between local files & database. *see local files note*
+- Users should be able to see a map with all of their pictures on it
 - **Potential Bonus Feature**: Post to social media without leaving the app.
 There are a few other features I'm mulling over, but unless I truly want to put the effort in to turn this into a magnum opus, I'll not add them (They'll be added to this readme if I see fit to at least think about including them).
 
@@ -21,10 +20,13 @@ There are a few other features I'm mulling over, but unless I truly want to put 
 - Grayscale for now with the exception of non-nav visited links. Considering changing those to a diff shade of gray in the near future.
 
 ## To-do list
-- Figure out how to display images in rails.
-- Move the alert area to the navbar.
-- Create image model (branch: collection).
-- Make nav tab collapsable (branch: styling).
+- Add search/sort to user collection view (collection).
+- Add s3 gem & be able to pull metadata from a url (collection).
+- Add link/route to map view (collection).
+- Add a customized bootstrap theme using solarized's color scheme (styling).
+- Move the alert area to the navbar (styling).
+- Make nav tab collapsable (styling).
+- Add social media functions (social).
 
 ## Models
 ### User
@@ -42,6 +44,8 @@ Image is the core model of this project. It will encompass all image files (loca
 - uri - string - the path to the file (non-null).
 - latitude - float - The latitude where the picture was taken (only matters for picture-type images) (range: -90 to 90).
 - longitude - float - The longitude where the picture was taken (only matters for picture-type images) (range: -180 to 180).
+- width - int - native width of the image in pixels.
+- height - int - native height of the image in pixels.
 - aspect_ratio - float - the aspect ratio (calculated at time of creation, width/height) of the image. for display purposes.
 - tags - text - comma-delimited user-added tags for an image.
 
@@ -58,18 +62,24 @@ A view for just looking at a single image. Should show the image, with a small d
 ### Add image
 Standard form page with the following fields:
 - title - text field
-- location - text field (maps to uri)
-- type - dropdown box
+- URL - text field (maps to uri)
+- type - radio buttions
 - tags - text area
+- width - number field
+- height - number field
+- latitude - number field
+- longitude - number field
 
 ### Edit image
 Standard form page with the following fields:
 - title - text field
-- location - text field (maps to uri)
-- type - dropdown box
+- URL - text field (maps to uri)
+- type - radio buttions
 - tags - text area
-- latitude - text field
-- longitude - text field
+- width - number field
+- height - number field
+- latitude - number field
+- longitude - number field
 
 ### Map
 Should show a google maps API map that shows the locations where the users have taken their pictures.
