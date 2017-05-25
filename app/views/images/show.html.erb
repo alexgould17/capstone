@@ -8,14 +8,17 @@
 <% end %>
 <h3>Tags:</h3>
 <div class="container">
-  <% @tags.each do |tag| %>
+  <% @tags.each do |tag,i| %>
     <div class="tag">
       <%= tag %>
-      <a href="#"><span class="glyphicon glyphicon-remove">X</span></a>
-      </div>
+    </div>
   <% end %>
 </div>
-<h3>Add a new tag:</h3>
-<p>TODO: Add form for adding new tags as well as a deletion link both via ajax. Remember to take the X out of the glyphicon span once bootstrap is installed</p>
+<h3>Add or remove tag:</h3>
+<%= form_for @image, remote: true do |f| %>
+  <%= f.label :tags %>
+  <%= f.text_area :tags %>
+  <%= f.submit %>
+<% end %>
 <%= link_to "Edit this image", edit_image_path %><br />
 <%= link_to "Delete this image X", @image, method: :delete %>
