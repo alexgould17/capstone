@@ -10,13 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170501042744) do
+ActiveRecord::Schema.define(version: 20170517054910) do
 
   create_table "faqs", force: :cascade do |t|
     t.string   "question"
     t.text     "answer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "pictype"
+    t.string   "uri",          default: "", null: false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "width"
+    t.integer  "height"
+    t.float    "aspect_ratio"
+    t.text     "tags"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_images_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

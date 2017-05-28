@@ -1,0 +1,9 @@
+<h1><%= collection_title(@user, current_user) %></h1>
+<% @images.each do |image| %>
+  <div class="collectionImageContainer">
+    <a href="<%= image_path(image) %>">
+      <%= image_tag image.uri, class: image_class(image), alt: image.title, size: image_small_size(image.aspect_ratio) %>
+    </a>
+  </div>
+<% end %>
+<%= link_to "Add a new image", new_image_path %>

@@ -6,4 +6,8 @@ Rails.application.routes.draw do
 
   # User signup/login/etc. paths via devise
   devise_for :users
+
+  # User's page maps to their collection which is handled by index action in the images controller.
+  get 'users/:id', to: 'images#index', as: 'user'
+  resources :images, except: [:index]
 end
