@@ -24,6 +24,10 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Use devise for secure user authentication/sessioning
 gem 'devise'
+# Use figaro to obscure confidential data
+gem 'figaro'
+# Use s3 gem to more easily access data from Amazon s3
+gem 's3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
