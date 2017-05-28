@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   # User's page maps to their collection which is handled by index action in the images controller.
   get 'users/:id', to: 'images#index', as: 'user'
   resources :images, except: [:index]
+  get 'images/addfroms3', to: 'images#new', as: 'new_image_from_s3'
 end
