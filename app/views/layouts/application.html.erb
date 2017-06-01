@@ -28,6 +28,10 @@
                   <% end %>
                 </ul>
               </li>
+              <% if user_signed_in? %>
+                <li><%= link_to "My Collection", current_user %></li>
+                <li><%= link_to "Add New Image", new_image_path %></li>
+              <% end %>
             </ul>
           </div>
         </div>

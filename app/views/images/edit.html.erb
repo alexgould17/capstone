@@ -1,34 +1,50 @@
 <h1>Update an image</h1>
 <%= form_for @image do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title, autofocus: true %><br />
+  <div class="input-group">
+    <%= f.label :title, class: "form-control" %>
+    <%= f.text_field :title, autofocus: true, class: "form-control" %><br />
+  </div>
 
-  <%= f.label :pictype %><br />
-  <%= f.radio_button :pictype, :picture %>Picture
-  <%= f.radio_button :pictype, :artwork %>Artwork
-  <%= f.radio_button :pictype, :other %>Other<br />
+  <div class="input-group">
+    <%= f.label :pictype, class: "form-control" %><br />
+    <%= f.radio_button :pictype, :picture, class: "form-control" %>Picture
+    <%= f.radio_button :pictype, :artwork, class: "form-control" %>Artwork
+    <%= f.radio_button :pictype, :other, class: "form-control" %>Other<br />
+  </div>
 
-  <%= f.label :uri, "URL:" %>
-  <%= f.text_field :uri %><br />
-  <p class="formReqs">(cannot be blank)</p><br />
+  <div class="input-group">
+    <%= f.label :uri, "URL:", class: "form-control" %>
+    <%= f.text_field :uri, class: "form-control" %><br />
+    <p class="formReqs">(cannot be blank)</p><br />
+  </div>
 
-  <%= f.label :latitude %>
-  <%= f.number_field :latitude, step: "0.000001" %><br />
-  <p class="formReqs">(must be between -90 &amp; 90, up to 6 decimal places allowed)</p><br />
+  <div class="input-group">
+    <%= f.label :latitude, class: "form-control" %>
+    <%= f.number_field :latitude, step: "0.000001", class: "form-control" %><br />
+    <p class="formReqs">(must be between -90 &amp; 90, up to 6 decimal places allowed)</p><br />
+  </div>
 
-  <%= f.label :longitude %>
-  <%= f.number_field :longitude, step: "0.000001" %><br />
-  <p class="formReqs">(must be between -180 &amp; 180, up to 6 decimal places allowed)</p><br />
+  <div class="input-group">
+    <%= f.label :longitude, class: "form-control" %>
+    <%= f.number_field :longitude, step: "0.000001", class: "form-control" %><br />
+    <p class="formReqs">(must be between -180 &amp; 180, up to 6 decimal places allowed)</p><br />
+  </div>
 
-  <%= f.label :width %>
-  <%= f.number_field :width %><br />
+  <div class="input-group">
+    <%= f.label :width, class: "form-control" %>
+    <%= f.number_field :width, class: "form-control" %><br />
+  </div>
 
-  <%= f.label :height %>
-  <%= f.number_field :height %><br />
+  <div class="input-group">
+    <%= f.label :height, class: "form-control" %>
+    <%= f.number_field :height, class: "form-control" %><br />
+  </div>
 
-  <%= f.label :tags %>
-  <%= f.text_area :tags %><br />
-  <p class="formReqs">(tags should be separated by commas. Accepted characters: letters, numbers, spaces, and -_+=~.?!:;'"@#$%^&amp;*()[]{}&lt;&gt;/\)</p><br />
+  <div class="input-group">
+    <%= f.label :tags, class: "form-control" %>
+    <%= f.text_area :tags, class: "form-control" %><br />
+    <p class="formReqs">(tags should be separated by commas. Accepted characters: letters, numbers, spaces, and -_+=~.?!:;'"@#$%^&amp;*()[]{}&lt;&gt;/\)</p><br />
+  </div>
 
-  <%= f.submit %>
+  <%= f.submit "Add Image", class: "btn btn-success" %>
 <% end %>
